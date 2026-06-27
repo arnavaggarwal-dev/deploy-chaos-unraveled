@@ -2,6 +2,6 @@
 
 https://arnavaggarwal-dev.github.io/deploy-chaos-unraveled/
 
-This is a tribute to my first ever game in [RetroPy]
+This is a tribute to my first ever game in [RetroPy](https://www.retropy.io/)
 
 All of the art is done by my friend Bernie.
