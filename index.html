@@ -6,7 +6,7 @@ Loading chaos_unraveled_pc from chaos_unraveled_pc.apk
     Template Version : 0.9.3
     Python  : 3.12
     CDN URL : https://pygame-web.github.io/cdn/0.9.3/
-    Screen  : 1280x720
+    Screen  : 960x720
     Title   : chaos_unraveled_pc
     Folder  : chaos_unraveled_pc
     Authors : pgw
@@ -157,7 +157,7 @@ config = {
     autorun : 0,
     PYBUILD : "3.12",
     fb_ar   :  1.77,
-    fb_width : "1280",
+    fb_width : "960",
     fb_height : "720"
 }
 
@@ -307,7 +307,7 @@ height="1px"
     </canvas>
 
     <canvas class="emscripten" id="canvas3d"
-width="1280px"
+width="960px"
 height="720px"
     oncontextmenu="event.preventDefault()" tabindex=1 hidden>
     </canvas>
@@ -433,6 +433,139 @@ frameborder="1"
     }
 
     </script>
+
+    <!-- CONTROLS SPLASH — injected by patch_html.py -->
+    <div id="splash">
+        <div id="splash-box">
+            <h1 id="splash-title">CHAOS UNRAVELED</h1>
+            <p id="splash-sub">PC Controls</p>
+
+            <table id="ctrl-table">
+                <thead>
+                    <tr>
+                        <th>Console Button</th>
+                        <th>PC Key</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>D-Pad</td>        <td>Arrow Keys</td>          <td>Move</td></tr>
+                    <tr><td>A</td>            <td>Z &nbsp;/&nbsp; Enter</td><td>Attack / Confirm</td></tr>
+                    <tr><td>B</td>            <td>X &nbsp;/&nbsp; Shift</td><td>Secondary Action</td></tr>
+                    <tr><td>T-Left</td>       <td>Q &nbsp;/&nbsp; Tab</td>  <td>Shoulder Left / Back</td></tr>
+                    <tr><td>T-Right</td>      <td>E</td>                    <td>Shoulder Right</td></tr>
+                    <tr class="combo-row">
+                        <td>Up + B, then A</td>
+                        <td>Hold Up + X, press Z</td>
+                        <td>Open / Close Inventory</td>
+                    </tr>
+                    <tr><td>&#8212;</td>      <td>ESC</td>                  <td>Quit Game</td></tr>
+                </tbody>
+            </table>
+
+            <button id="start-btn" onclick="startGame()">&#9654; START GAME</button>
+        </div>
+    </div>
+
+    <style>
+        #splash {
+            position: fixed;
+            inset: 0;
+            background: #0d0d1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            font-family: monospace;
+        }
+
+        #splash-box {
+            background: #13132b;
+            border: 2px solid #e94560;
+            border-radius: 8px;
+            padding: 36px 48px;
+            max-width: 620px;
+            width: 90vw;
+            text-align: center;
+            color: #eee;
+        }
+
+        #splash-title {
+            color: #e94560;
+            font-size: 2rem;
+            letter-spacing: 4px;
+            margin: 0 0 4px 0;
+        }
+
+        #splash-sub {
+            color: #888;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0 0 24px 0;
+        }
+
+        #ctrl-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-bottom: 28px;
+        }
+
+        #ctrl-table th {
+            color: #e94560;
+            border-bottom: 1px solid #e94560;
+            padding: 6px 10px;
+            text-align: left;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #ctrl-table td {
+            padding: 7px 10px;
+            border-bottom: 1px solid #222244;
+            text-align: left;
+        }
+
+        #ctrl-table td:first-child {
+            color: #aad4f5;
+            font-weight: bold;
+        }
+
+        #ctrl-table td:nth-child(2) {
+            color: #f5d76e;
+        }
+
+        #ctrl-table tr.combo-row td {
+            background: #1a1a40;
+        }
+
+        #start-btn {
+            background: #e94560;
+            color: #fff;
+            border: none;
+            padding: 14px 48px;
+            font-size: 1.1rem;
+            font-family: monospace;
+            font-weight: bold;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.15s;
+        }
+
+        #start-btn:hover { background: #c73652; }
+    </style>
+
+    <script type="application/javascript">
+    function startGame() {
+        document.getElementById('splash').style.display = 'none';
+        var canvas = document.getElementById('canvas');
+        if (canvas) canvas.focus();
+    }
+    </script>
+    <!-- END CONTROLS SPLASH -->
 
 </body>
 </html>
